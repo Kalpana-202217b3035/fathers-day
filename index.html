@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day! ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #34495e;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s ease, opacity 0.5s ease;
+            backface-visibility: hidden;
+            z-index: 2;
+            padding: 20px;
+            text-align: center;
+            color: #ecf0f1;
+        }
+
+        .envelope-seal {
+            font-size: 50px;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .letter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+            z-index: 1;
+            border-top: 8px solid #2c3e50;
+        }
+
+        .card-container.open .envelope {
+            transform: translateY(-110%) rotate(-5deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .card-container.open .letter {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            z-index: 3;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .signature {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            text-align: right;
+        }
+
+        .tap-hint {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container" onclick="toggleCard(this)">
+        <div class="envelope">
+            <h2>To the Best Dad in the World</h2>
+            <p class="tap-hint">Tap to open your message</p>
+            <div class="envelope-seal">❤️</div>
+        </div>
+
+        <div class="letter">
+            <div>
+                <h1>Happy Father's Day!</h1>
+                <p>
+                    Thank you for always being my rock, my guide, and my biggest supporter. Your strength, patience, and love mean more to me than words can ever express. 
+                    <br><br>
+                    Here's to celebrating you today and every day!
+                </p>
+            </div>
+            <div class="signature">
+                With love always, <br>
+                Your loving child Bittu❤️
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
